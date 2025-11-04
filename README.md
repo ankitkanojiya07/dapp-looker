@@ -220,11 +220,4 @@ pylint app/
 black app/
 ```
 
-## License
-
-[Add your license information here]
-
-## Support
-
-For issues or questions, please [create an issue](link-to-issues) or contact the development team.
 
