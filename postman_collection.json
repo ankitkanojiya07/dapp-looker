@@ -1,0 +1,287 @@
+{
+	"info": {
+		"name": "Dapplooker Backend API",
+		"description": "Collection for Dapplooker Backend API - Token Insights and HyperLiquid PnL",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "dapplooker-backend"
+	},
+	"item": [
+		{
+			"name": "Health Check",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/health",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"health"
+					]
+				},
+				"description": "Health check endpoint to verify the API is running"
+			},
+			"response": []
+		},
+		{
+			"name": "Token Insight",
+			"item": [
+				{
+					"name": "Get Bitcoin Insight",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"vs_currency\": \"usd\",\n  \"history_days\": 30\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/token/bitcoin/insight",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"token",
+								"bitcoin",
+								"insight"
+							]
+						},
+						"description": "Get token insight for Bitcoin with 30 days history"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Ethereum Insight",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"vs_currency\": \"usd\",\n  \"history_days\": 7\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/token/ethereum/insight",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"token",
+								"ethereum",
+								"insight"
+							]
+						},
+						"description": "Get token insight for Ethereum with 7 days history"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Chainlink Insight",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"vs_currency\": \"usd\",\n  \"history_days\": 30\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/token/chainlink/insight",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"token",
+								"chainlink",
+								"insight"
+							]
+						},
+						"description": "Get token insight for Chainlink with default parameters"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Token Insight (Custom Currency)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"vs_currency\": \"eur\",\n  \"history_days\": 14\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/token/bitcoin/insight",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"token",
+								"bitcoin",
+								"insight"
+							]
+						},
+						"description": "Get token insight with custom currency (EUR) and history days"
+					},
+					"response": []
+				}
+			],
+			"description": "Token insight endpoints"
+		},
+		{
+			"name": "HyperLiquid PnL",
+			"item": [
+				{
+					"name": "Get Wallet PnL (30 days)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/hyperliquid/0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb/pnl?start=2025-01-01&end=2025-01-31",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"hyperliquid",
+								"0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb",
+								"pnl"
+							],
+							"query": [
+								{
+									"key": "start",
+									"value": "2025-01-01",
+									"description": "Start date in YYYY-MM-DD format"
+								},
+								{
+									"key": "end",
+									"value": "2025-01-31",
+									"description": "End date in YYYY-MM-DD format"
+								}
+							]
+						},
+						"description": "Get daily PnL for a wallet address for a 30-day period"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Wallet PnL (7 days)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/hyperliquid/0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb/pnl?start=2025-01-25&end=2025-01-31",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"hyperliquid",
+								"0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb",
+								"pnl"
+							],
+							"query": [
+								{
+									"key": "start",
+									"value": "2025-01-25",
+									"description": "Start date in YYYY-MM-DD format"
+								},
+								{
+									"key": "end",
+									"value": "2025-01-31",
+									"description": "End date in YYYY-MM-DD format"
+								}
+							]
+						},
+						"description": "Get daily PnL for a wallet address for a 7-day period"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Wallet PnL (Single Day)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/hyperliquid/0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb/pnl?start=2025-01-15&end=2025-01-15",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"hyperliquid",
+								"0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb",
+								"pnl"
+							],
+							"query": [
+								{
+									"key": "start",
+									"value": "2025-01-15",
+									"description": "Start date in YYYY-MM-DD format"
+								},
+								{
+									"key": "end",
+									"value": "2025-01-15",
+									"description": "End date in YYYY-MM-DD format"
+								}
+							]
+						},
+						"description": "Get daily PnL for a wallet address for a single day"
+					},
+					"response": []
+				}
+			],
+			"description": "HyperLiquid PnL endpoints"
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8000",
+			"type": "string"
+		}
+	]
+}
+
